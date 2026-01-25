@@ -11,15 +11,6 @@ export const fetchPokemons = async (limit: number, pageParam: unknown) => {
     return data
 }
 
-export const getPokemonIdFromUrl = (url: string): string => {
-    const parts = url.split("/")
-    return parts[parts.length - 2]
-}
-
-export const getPokemonImageUrl = (id:string): string => {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
-}
-
 export function usePokemons() {
     return useInfiniteQuery<ListOfPokemons>({
         queryKey: ['pokemons'],

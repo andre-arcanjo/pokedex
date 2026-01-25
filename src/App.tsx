@@ -3,7 +3,7 @@ import { getPokemonIdFromUrl, getPokemonImageUrl } from "./hooks/fetchPokemons"
 
 function App() {
 
-  const { data, isLoading, error } = usePokemons()
+  const { data, isLoading, error, fetchNextPage, hasNextPage, isFetchingNextPage } = usePokemons()
 
   return (
     <>
@@ -17,18 +17,28 @@ function App() {
         }
 
         {data &&
-          data.results.map(pokemon => {
-            const id = getPokemonIdFromUrl(pokemon.url)
-            const imageUrl = getPokemonImageUrl(id)
+          data.pages.map(page =>
+            page.results.map((pokemon) => {
+              const id = getPokemonIdFromUrl(pokemon.url)
+              const imageUrl = getPokemonImageUrl(id)
 
-            return (
-              <div className="flex flex-col w-80 justify-center items-center bg-neutral-500 rounded-lg" key={pokemon.name}>
-                <p className="text-center text-2xl">{pokemon.name}</p>
-                <img className="w-60" src={imageUrl} alt={pokemon.name} />
-              </div>
-            )
-          })
+              return (
+                <div className="flex flex-col w-80 justify-center items-center bg-neutral-500 rounded-md" key={pokemon.name}>
+                  <p className="text-center text-2xl">{pokemon.name}</p>
+                  <img className="w-60" src={imageUrl} alt={pokemon.name} />
+                </div>
+              )
+            }
+            ))
+
         }
+        {hasNextPage && (
+          <div className="w-full h-10 flex justify-center items-center p-10">
+            <button className="bg-neutral-500 w-40 h-10 rounded-md hover:bg-neutral-700" onClick={() => fetchNextPage()}>
+              {isFetchingNextPage ? 'Carregando...' : 'Carregar mais'}
+            </button>
+          </div>
+        )}
       </div>
     </>
   )

@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query"
+import { useInfiniteQuery } from "@tanstack/react-query"
 import type { ListOfPokemons } from "../types/types"
 
-export const fetchPokemons = async (limit: number, pageParam: number) => {
+export const fetchPokemons = async (limit: number, pageParam: unknown) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${pageParam}`)
 
     if(!response.ok) throw new Error('Erro ao buscar pokemons.')
@@ -21,8 +21,14 @@ export const getPokemonImageUrl = (id:string): string => {
 }
 
 export function usePokemons() {
-    return useQuery<ListOfPokemons>({
+    return useInfiniteQuery<ListOfPokemons>({
         queryKey: ['pokemons'],
-        queryFn: () => fetchPokemons(10,0)
+        initialPageParam: 0,
+        queryFn: ({pageParam}) => fetchPokemons(10,pageParam),
+        getNextPageParam: (lastPage, allPages) => {
+            if(!lastPage.next) return undefined
+
+            return allPages.length * 10
+        }
     })
 }

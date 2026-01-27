@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom"
 import { usePokemons } from "../../hooks/fetchPokemons"
 import { getPokemonIdFromUrl } from "../../hooks/getPokemonIdFromUrl"
 import { getPokemonImageUrl } from "../../hooks/getPokemonImageUrl"
 
 export const ListOfPokemons = () => {
-    const { data, isLoading, error, fetchNextPage, hasNextPage, isFetchingNextPage } = usePokemons()
+  const { data, isLoading, error, fetchNextPage, hasNextPage, isFetchingNextPage } = usePokemons()
 
-    return (
-        <>
-            <div className="flex flex-wrap justify-center gap-5">
+  return (
+    <>
+      <div className="flex flex-wrap justify-center gap-5">
         {isLoading &&
           <p>Carregando pokemons...</p>
         }
@@ -26,6 +27,7 @@ export const ListOfPokemons = () => {
                 <div className="flex flex-col w-80 justify-center items-center bg-neutral-500 rounded-md" key={pokemon.name}>
                   <p className="text-center text-2xl">{pokemon.name}</p>
                   <img className="w-60" src={imageUrl} alt={pokemon.name} />
+                  <Link key={id} to={`/pokemon/${id}`}>Saiba mais</Link>
                 </div>
               )
             }
@@ -40,7 +42,7 @@ export const ListOfPokemons = () => {
           </div>
         )}
       </div>
-        </>
-    )
+    </>
+  )
 }
 

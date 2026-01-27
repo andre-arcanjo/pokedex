@@ -1,10 +1,18 @@
-import { ListOfPokemons } from "./components/ListOfPokemons/ListOfPokemons"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ListOfPokemons } from "./components/ListOfPokemons/ListOfPokemons";
+import { PokemonDetails } from "./components/PokemonDetails/PokemonDetails";
 
 function App() {
 
   return (
     <>
-      <ListOfPokemons />
+      <BrowserRouter basename="/Pokedex-API">
+        <Routes>
+          <Route path="/" element={<ListOfPokemons />} />
+          <Route path="/pokemon/:id" element={<PokemonDetails />} />
+        </Routes>
+      </BrowserRouter>
+
     </>
   )
 }

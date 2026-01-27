@@ -1,14 +1,13 @@
-import { useInfiniteQuery } from "@tanstack/react-query"
-import type { ListOfPokemons } from "../types/types"
+import { useInfiniteQuery } from "@tanstack/react-query";
+import type { ListOfPokemons } from "../types/types";
 
 export const fetchPokemons = async (limit: number, pageParam: unknown) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${pageParam}`)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${pageParam}`);
 
-    if(!response.ok) throw new Error('Erro ao buscar pokemons.')
+    if(!response.ok) throw new Error('Erro ao buscar pokemons.');
 
-    const data = await response.json()
-    console.log(data)
-    return data
+    const data = await response.json();
+    return data;
 }
 
 export function usePokemons() {

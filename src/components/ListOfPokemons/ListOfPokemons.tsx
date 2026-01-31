@@ -9,6 +9,9 @@ export const ListOfPokemons = () => {
   return (
     <>
       <div className="flex flex-wrap justify-center gap-5">
+        <div className="flex justify-center items-center w-screen h-30">
+          <h1 className="text-center text-4xl">Pokedex</h1>
+        </div>
         {isLoading &&
           <p>Carregando pokemons...</p>
         }
@@ -24,10 +27,13 @@ export const ListOfPokemons = () => {
               const imageUrl = getPokemonImageUrl(id)
 
               return (
-                <div className="flex flex-col w-80 justify-center items-center bg-neutral-500 rounded-md" key={pokemon.name}>
-                  <p className="text-center text-2xl">{pokemon.name}</p>
-                  <img className="w-60" src={imageUrl} alt={pokemon.name} />
-                  <Link key={id} to={`/pokemon/${id}`}>Saiba mais</Link>
+                <div>
+                  <Link key={id} to={`/pokemon/${id}`}>
+                    <div className="flex flex-col w-70 gap-2 justify-center items-center bg-neutral-500 rounded-md hover:bg-neutral-700 hover:transition-all" key={pokemon.name}>
+                      <p className="text-center text-2xl">{pokemon.name}</p>
+                      <img className="w-50" src={imageUrl} alt={pokemon.name} />
+                    </div>
+                  </Link>
                 </div>
               )
             }

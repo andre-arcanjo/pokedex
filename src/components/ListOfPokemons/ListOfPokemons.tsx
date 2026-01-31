@@ -34,7 +34,7 @@ export const ListOfPokemons = () => {
               return (
                 <div>
                   <Link key={id} to={`/pokemon/${id}`}>
-                    <div className="flex flex-col w-70 gap-2 justify-center items-center bg-neutral-500 rounded-md hover:bg-neutral-700 hover:transition-all" key={pokemon.name}>
+                    <div className="flex flex-col w-70 gap-2 justify-center items-center bg-[#494f4e] rounded-md hover:bg-neutral-700 hover:transition-all" key={pokemon.name}>
                       <p className="text-center text-2xl capitalize">{pokemon.name}</p>
                       <img className="w-50" src={imageUrl} alt={pokemon.name} />
                     </div>

@@ -22,7 +22,7 @@ export const PokemonDetails = () => {
                     </div>
                 }
                 {data &&
-                    <div className="w-120 h-170 flex flex-col items-center justify-center gap-5 bg-neutral-500 rounded-lg text-center relative">
+                    <div className="w-120 h-170 flex flex-col items-center justify-center gap-5 bg-[#494f4e] rounded-lg text-center relative">
                         <Link to="/">
                             <img className="w-10 absolute left-[30px] top-[26px] hover:w-11 hover:transition-all" src="/Pokedex-API/seta.webp" alt="Voltar" />
                         </Link>
@@ -62,3 +62,7 @@ export const PokemonDetails = () => {
         </>
     )
 }
+
+//estilizar responsividade
+// definir backgrounds
+// fazer modo claro e escuro

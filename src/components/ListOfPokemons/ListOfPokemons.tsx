@@ -17,7 +17,12 @@ export const ListOfPokemons = () => {
         }
 
         {error &&
-          <p>Ocorreu um erro ao buscar os pokemons...</p>
+          <div className="flex flex-col gap-2 items-center">
+            <p>Ocorreu um erro ao buscar os pokemons. Clique no botão abaixo para tentar novamente</p>
+            <button className="bg-neutral-500 w-40 h-10 rounded-md text-white hover:bg-neutral-700 transition-all">
+              <Link to="/">Tentar novamente</Link>
+            </button>
+          </div>
         }
 
         {data &&
@@ -30,7 +35,7 @@ export const ListOfPokemons = () => {
                 <div>
                   <Link key={id} to={`/pokemon/${id}`}>
                     <div className="flex flex-col w-70 gap-2 justify-center items-center bg-neutral-500 rounded-md hover:bg-neutral-700 hover:transition-all" key={pokemon.name}>
-                      <p className="text-center text-2xl">{pokemon.name}</p>
+                      <p className="text-center text-2xl capitalize">{pokemon.name}</p>
                       <img className="w-50" src={imageUrl} alt={pokemon.name} />
                     </div>
                   </Link>

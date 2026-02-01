@@ -15,7 +15,7 @@ export const ListOfPokemons = () => {
   return (
     <>
       <div
-        className="flex flex-wrap justify-center gap-5 bg-no-repeat bg-cover bg-fixed"
+        className="min-h-screen flex flex-wrap justify-center gap-5 bg-no-repeat bg-cover bg-fixed"
         style={{ backgroundImage: `url(${themeConfig[theme].layout.background})` }}
       >
         <div className="flex flex-col sm:flex-row justify-center items-center w-screen h-30 gap-4 px-4 py-6 sm:py-0 relative">
@@ -44,8 +44,8 @@ export const ListOfPokemons = () => {
               const imageUrl = getPokemonImageUrl(id)
 
               return (
-                <div>
-                  <Link key={id} to={`/pokemon/${id}`}>
+                <div key={id}>
+                  <Link to={`/pokemon/${id}`}>
                     <div className={`flex flex-col w-70 gap-2 justify-center items-center rounded-md ${themeConfig[theme].layout.backgroundColor} ${theme === 'light' ? 'hover:bg-neutral-800' : 'hover:bg-gray-800'} hover:transition-all opacity-[0.9]`} key={pokemon.name}>
                       <p className={`text-center ${themeConfig[theme].layout.textColor} text-2xl capitalize`}>{pokemon.name}</p>
                       <img className="w-50" src={imageUrl} alt={pokemon.name} />

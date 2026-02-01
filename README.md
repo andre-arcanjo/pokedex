@@ -2,6 +2,10 @@
 
 Uma aplicação web moderna de Pokédex desenvolvida com React, TypeScript e Vite, consumindo a [PokéAPI](https://pokeapi.co/).
 
+## Demonstração
+
+Confira a aplicação em funcionamento: [https://andre-arcanjo.github.io/pokedex/](https://andre-arcanjo.github.io/pokedex/)
+
 ## ✨ Características
 
 - 🎨 **Tema Claro/Escuro**: Alterne entre temas com um clique

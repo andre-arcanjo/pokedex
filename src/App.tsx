@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/Pokedex-API">
+      <BrowserRouter basename="/pokedex">
         <Routes>
           <Route path="/" element={<ListOfPokemons />} />
           <Route path="/pokemon/:id" element={<PokemonDetails />} />

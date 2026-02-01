@@ -7,7 +7,6 @@ export const fetchPokemon = async (id:string | undefined) => {
     if(!response.ok) throw new Error('Erro ao buscar detalhes do pokemon');
     
     const data = await response.json();
-    console.log(data)
     return data;
 }
 

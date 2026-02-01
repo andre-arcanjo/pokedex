@@ -28,7 +28,7 @@ export const PokemonDetails = () => {
                 {data &&
                     <div className={`w-[90%] sm:w-120 h-165 flex flex-col items-center justify-center gap-5 ${themeConfig[theme].layout.textColor} ${themeConfig[theme].layout.backgroundColor} rounded-lg text-center relative opacity-[0.9]`}>
                         <Link to="/">
-                            <img className="w-10 absolute left-[30px] top-[26px] hover:w-11 hover:transition-all" src="/Pokedex-API/seta.webp" alt="Voltar" />
+                            <img className="w-10 absolute left-[30px] top-[26px] hover:w-11 hover:transition-all" src="/pokedex/seta.webp" alt="Voltar" />
                         </Link>
                         <p className="text-3xl font-semibold capitalize">{data.name}</p>
                         {data.sprites.other['official-artwork'].front_default &&
